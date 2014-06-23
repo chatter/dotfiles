@@ -28,4 +28,4 @@ set laststatus=2
 
 For zsh on OS X may have issues with some plugins so move the following:
 
- sudo mv /etc/zshenv
+    sudo mv /etc/zshenv
