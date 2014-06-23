@@ -42,7 +42,7 @@ For zsh on OS X may have issues with some plugins so move the following:
 
 All settings take place on the Text panel in iTerm's Profiles Preferences
 
-    Preferences ⇢ Profiles ⇢ Text
+    Preferences ⌘, ⇢ Profiles ⇢ Text
     
 Set the font to Anonymous Pro for both regular and non-ascii fonts.
 
@@ -51,7 +51,7 @@ Check `Draw bold text in bright colors`
 
 ## Set iTerm's Terminal settings:
 
-    Preferences ⇢ Profiles ⇢ Terminal
+    Preferences ⌘, ⇢ Profiles ⇢ Terminal
     
 Select `xterm-256color` in the `Report Terminal Type` dropdown.
 
