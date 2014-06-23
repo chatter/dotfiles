@@ -54,7 +54,7 @@ Set the font to Anonymous Pro for both regular and non-ascii fonts.
 
     Preferences ⌘, ⇢ Profiles ⇢ Terminal
     
-    Select `xterm-256color` in the `Report Terminal Type` dropdown.
+    Select xterm-256color in the Report Terminal Type dropdown.
 
     ☑︎ Set locale variables automatically
     
