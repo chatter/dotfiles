@@ -27,4 +27,5 @@ source {repository_root}/powerline/bindings/tmux/powerline.conf
 set laststatus=2
 
 For zsh on OS X may have issues with some plugins so move the following:
+
  sudo mv /etc/zshenv
