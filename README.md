@@ -58,3 +58,17 @@ Set the font to Anonymous Pro for both regular and non-ascii fonts.
 
     ☑︎ Set locale variables automatically
     
+
+# Vi
+
+### Plugins
+
+#### NERDTree
+
+  * `o` open file under cursor or open/close directory
+  * `i` open file in new horizontal split
+  * `s` open file in new vertical split
+  * `t` open file in a new tab
+  * `p` go to parent directory
+  * `r` refresh directory
+  * `m` open NERDTree menu
