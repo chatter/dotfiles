@@ -46,14 +46,15 @@ All settings take place on the Text panel in iTerm's Profiles Preferences
     
 Set the font to Anonymous Pro for both regular and non-ascii fonts.
 
-Uncheck `Draw bold text in bold font`
-Check `Draw bold text in bright colors`
+    ☐ Draw bold text in bold font
+
+    ☑︎ Draw bold text in bright colors
 
 ## Set iTerm's Terminal settings:
 
     Preferences ⌘, ⇢ Profiles ⇢ Terminal
     
-Select `xterm-256color` in the `Report Terminal Type` dropdown.
+    Select `xterm-256color` in the `Report Terminal Type` dropdown.
 
-Check `Set locale variables automatically`
+    ☑︎ Set locale variables automatically
     
