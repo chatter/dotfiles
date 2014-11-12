@@ -17,6 +17,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'msanders/snipmate.vim'		" :help snipmate
 Plugin 'scrooloose/nerdtree'		" :help nerdtree
+Plugin 'scrooloose/syntastic'		" :help syntastic
 Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'		" :help tcomment
 Plugin 'tpope/vim-rbenv'
