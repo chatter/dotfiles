@@ -118,3 +118,5 @@ nmap <Leader>nt :NERDTree<CR>
 " ctags
 set tags=./tags;
 
+" better esc
+:imap jk <ESC>
