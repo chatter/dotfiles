@@ -58,6 +58,23 @@ Set the font to Anonymous Pro for both regular and non-ascii fonts.
 
     ☑︎ Set locale variables automatically
     
+# powerline
+
+Now setup via pip.
+
+`pip install --user powerline-status`
+
+Then in .vimrc:
+
+```
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+```
 
 # Vi
 

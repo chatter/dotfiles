@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " my bundles
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'Lokaltog/vim-powerline'
 Plugin 'msanders/snipmate.vim'		" :help snipmate
 Plugin 'scrooloose/nerdtree'		" :help nerdtree
 Plugin 'scrooloose/syntastic'		" :help syntastic
@@ -120,3 +119,11 @@ set tags=./tags;
 
 " better esc
 :imap jk <ESC>
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+    
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
