@@ -13,52 +13,30 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " my bundles
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'msanders/snipmate.vim'		" :help snipmate
-Plugin 'scrooloose/nerdtree'		" :help nerdtree
-Plugin 'scrooloose/syntastic'		" :help syntastic
+Plugin 'msanders/snipmate.vim'                    " :help snipmate
+Plugin 'scrooloose/nerdtree'                      " :help nerdtree
+Plugin 'scrooloose/syntastic'                     " :help syntastic
 Plugin 'skwp/greplace.vim'
-Plugin 'tomtom/tcomment_vim'		" :help tcomment
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
-Plugin 'wincent/command-t'		" :help command-t
-Plugin 'vim-ruby/vim-ruby'
-
-" colors
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomtom/tcomment_vim'                      " :help tcomment
+Plugin 'wincent/command-t'                        " :help command-t
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'altercation/vim-colors-solarized'         " colors
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" =============================================================================
-" Ruby stuff
-" =============================================================================
 syntax enable
 filetype plugin indent on
 
 augroup myfiletypes
   " Clear out old autocmds in grp
   autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
-  autocmd FileType ruby,eruby,yaml setlocal path+=lib
-  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
-  " Make ?s part of words
-  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+  autocmd FileType ruby,eruby,yaml,elixir setlocal ai sw=2 sts=2 et " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml,elixir setlocal path+=lib
+  autocmd FileType ruby,eruby,yaml,elixir setlocal colorcolumn=80
+  autocmd FileType ruby,eruby,yaml,elixir setlocal iskeyword+=? " Make ?s part of words
 augroup END
 
 " =============================================================================
@@ -96,10 +74,6 @@ let g:solarized_visibility="high"
 colorscheme solarized
 call togglebg#map("<F5>")
 
-" powerline
-set laststatus=2
-set t_Co=256
-
 " ack
 set grepprg=ack
 
@@ -114,15 +88,26 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " easier way to open nerdtree
 nmap <Leader>nt :NERDTree<CR>
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " ctags
 set tags=./tags;
 
 " better esc
 :imap jk <ESC>
 
+" powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-    
+
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
