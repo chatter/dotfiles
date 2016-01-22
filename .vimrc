@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " my bundles
 Plugin 'msanders/snipmate.vim'                    " :help snipmate
+Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdtree'                      " :help nerdtree
 Plugin 'scrooloose/syntastic'                     " :help syntastic
 Plugin 'skwp/greplace.vim'
@@ -111,3 +112,4 @@ python del powerline_setup
 
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
