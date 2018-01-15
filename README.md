@@ -4,6 +4,9 @@ dotfiles
 Set of configuration files for quickly setting up a new Mac OS X environment,
 along with essential applications.
 
+After checking out this repo, if you want the latest versions of the included
+submodules run `git submodules update --remote`.
+
 # Installing Applications
 
 ## [Homebrew](http://brew.sh)
