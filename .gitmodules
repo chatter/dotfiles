@@ -6,3 +6,7 @@
 	path = agnoster-zsh-theme
 	url = https://github.com/agnoster/agnoster-zsh-theme
 	branch = master
+[submodule "zsh-iterm-touchbar"]
+	path = zsh-iterm-touchbar
+	url = https://github.com/iam4x/zsh-iterm-touchbar.git
+	branch = master
