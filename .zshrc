@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export POWERLINE_CONFIG_COMMAND=`which powerline-config`
 
 # If using iTerm2 set ZSH_TMUX_ITERM2=true
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]]
@@ -13,7 +12,8 @@ fi
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster-light"
+ZSH_THEME="agnoster"
+PRIMARY_FG="white"
 
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
@@ -40,7 +40,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git tmux ssh-agent)
-plugins=(git tmux)
+plugins=(osx git zsh-iterm-touchbar)
 
 source $ZSH/oh-my-zsh.sh
 
