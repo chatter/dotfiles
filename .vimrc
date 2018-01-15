@@ -1,115 +1,93 @@
 " =============================================================================
-" Vundle stuff
+" Use Vim settings, rather than Vi settings
+" This must be first, because it changes other options as a side effect.
 " =============================================================================
-set nocompatible              " be iMproved, required
+set nocompatible
 set encoding=utf-8
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" =============================================================================
+" Plug setup
+" =============================================================================
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" =============================================================================
+" Plugins
+" =============================================================================
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp.vim'                 " Fuzzy file, buffer, mru, etc finder.
+Plug 'mileszs/ack.vim'                 " Plugin for script 'ack'.
+Plug 'scrooloose/nerdtree'            " A tree explorer plugin for Vim.
+Plug 'tpope/vim-commentary'           " Comment stuff out.
+Plug 'tpope/vim-sensible'             " Defaults everyone can agree on.
+Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple.
+Plug 'vim-airline/vim-airline'         " Status/tabline for Vim.
+Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'w0rp/ale'                       " ALE: Asynchronous Lint Engine.
+call plug#end()
 
-" my bundles
-Plugin 'msanders/snipmate.vim'                    " :help snipmate
-Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdtree'                      " :help nerdtree
-Plugin 'scrooloose/syntastic'                     " :help syntastic
-Plugin 'skwp/greplace.vim'
-Plugin 'tomtom/tcomment_vim'                      " :help tcomment
-Plugin 'wincent/command-t'                        " :help command-t
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'altercation/vim-colors-solarized'         " colors
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" =============================================================================
+" Setup: Ctrl-P
+" =============================================================================
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip       " General Files
+set wildignore+=*/node_modules/*,*/elm-stuff/* " JavaScript Based Files
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*      " Version Control Files
 
-" Put your non-Plugin stuff after this line
-syntax enable
-filetype plugin indent on
+" =============================================================================
+" Setup: Ack
+" =============================================================================
+if executable("ag")
+  let g:ackprg = 'ag --vimgrep'
+endif
 
-augroup myfiletypes
-  " Clear out old autocmds in grp
-  autocmd!
-  autocmd FileType ruby,eruby,yaml,elixir setlocal ai sw=2 sts=2 et " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml,elixir setlocal path+=lib
-  autocmd FileType ruby,eruby,yaml,elixir setlocal colorcolumn=80
-  autocmd FileType ruby,eruby,yaml,elixir setlocal iskeyword+=? " Make ?s part of words
-augroup END
+" =============================================================================
+" Setup: NERDTree
+" =============================================================================
+autocmd StdinReadPre * let s:std_in = 1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
+
+" =============================================================================
+" Setup: vim-airline
+" =============================================================================
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+set background=light              " For solarized-light background
+
+" =============================================================================
+" General: Tab/Space war settings
+" =============================================================================
+set tabstop=2    " show existing tab with 2 spaces identation
+set shiftwidth=1 " when indenting with '>', use 2 spaces width
+set expandtab    " on pressing tab, insert
 
 " =============================================================================
 " Generic Keybindings
 " =============================================================================
-let mapleader=','
+let mapleader = ','
 
-" git blame
-vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+imap jk <ESC>
+nmap <Leader>nt :NERDTree<CR>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
 
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-
-" easier grep result navigation
-map <C-N> :cn<CR>
-map <C-P> :cp<CR>
-
-" easier split pane navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" =============================================================================
+" Yank to system clipboard support
+" =============================================================================
+if has("clipboard")
+  set clipboard=unnamed
+  if has("unnamedplus")
+    set clipboard=unnamedplus
+  endif
+endif
 
 set splitbelow
 set splitright
-
-" solarized
-" set background=light
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
-call togglebg#map("<F5>")
-
-" ack
-set grepprg=ack
-
-" snipmate
-:filetype plugin on
-
-" nerdtree
-" show automatically if no file specified
-autocmd vimenter * if !argc() | NERDTree | endif
-" close vim if nerdtree only pane
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" easier way to open nerdtree
-nmap <Leader>nt :NERDTree<CR>
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" ctags
-set tags=./tags;
-
-" better esc
-:imap jk <ESC>
-
-" powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
-set laststatus=2 " Always display the statusline in all windows
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
