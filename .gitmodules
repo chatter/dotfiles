@@ -1,0 +1,8 @@
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts
+	branch = master
+[submodule "agnoster-zsh-theme"]
+	path = agnoster-zsh-theme
+	url = https://github.com/agnoster/agnoster-zsh-theme
+	branch = master
