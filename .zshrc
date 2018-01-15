@@ -40,7 +40,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git tmux ssh-agent)
-plugins=(osx git zsh-iterm-touchbar)
+plugins=(aws docker git osx zsh-iterm-touchbar)
 
 source $ZSH/oh-my-zsh.sh
 
