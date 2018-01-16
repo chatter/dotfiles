@@ -4,8 +4,8 @@ dotfiles
 Set of configuration files for quickly setting up a new Mac OS X environment,
 along with essential applications.
 
-After checking out this repo, if you want the latest versions of the included
-submodules run `git submodules update --remote`.
+After checking out this repo, you will need to grab the submodules as well which can be done 
+via the following command: `git submodules init && git submodules update --remote`
 
 # Installing Applications
 
@@ -63,7 +63,7 @@ Install by pasting the following in terminal prompt:
 Next, symlink the _agnoster_ theme included in this repo as a submodule.
 The one included with _Oh My Zsh_ is currently out of date.
 
-  `ln -s /path/to/this/repo/agnoster/agnoster-light.zsh-theme ~/.oh-my-zsh/themes/`
+  `ln -sf /path/to/this/repo/agnoster-zsh-theme/agnoster.zsh-theme ~/.oh-my-zsh/themes/`
 
 Next, symlink the `.zshrc` file from this repo to the home directory:
 
