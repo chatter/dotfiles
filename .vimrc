@@ -78,6 +78,9 @@ nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
 
+set splitbelow
+set splitright
+
 " =============================================================================
 " Yank to system clipboard support
 " =============================================================================
@@ -88,6 +91,8 @@ if has("clipboard")
   endif
 endif
 
-set splitbelow
-set splitright
 
+" =============================================================================
+" General: Generic Settings
+" =============================================================================
+set colorcolumn=132 " make column 132 visible
