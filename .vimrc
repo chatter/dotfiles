@@ -96,4 +96,4 @@ endif
 " =============================================================================
 " General: Generic Settings
 " =============================================================================
-set colorcolumn=132 " make column 132 visible
+set colorcolumn=80 " make column 80 visible
