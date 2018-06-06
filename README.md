@@ -73,17 +73,6 @@ Next, symlink the `.zshrc` file from this repo to the home directory:
 customized theme above. You will also want to remove `PRIMARY_FG="white"`
 from `.zshrc` before symlinking.
 
-### iTerm2 Touchbar Support
-
-Another submodule provided in this repo is
-[zsh-iterm-touchbar](https://github.com/iam4x/zsh-iterm-touchbar). Displays
-feedback in the Apple Touchbar.
-
-The `.zshrc` file is already configure to use it, you need to symlink the
-submodule directory to the proper location:
-
-  `ln -s /path/to/this/repo/zsh-iterm-touchbar ${ZSH_CUSTOM1:-$ZSH/custom}/plugins`
-
 ## Vim
 
 First, install _MacVim_ from _homebrew_ via the following command:
