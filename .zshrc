@@ -40,7 +40,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git tmux ssh-agent)
-plugins=(aws docker git osx zsh-iterm-touchbar)
+plugins=(aws docker git osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,3 +69,6 @@ bindkey '^R' history-incremental-search-backward
 setopt AUTO_CD
 
 # bindkey -v
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
