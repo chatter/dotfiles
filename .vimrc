@@ -18,15 +18,16 @@ endif
 " Plugins
 " =============================================================================
 call plug#begin('~/.vim/plugged')
-Plug 'kien/ctrlp.vim'                 " Fuzzy file, buffer, mru, etc finder.
-Plug 'mileszs/ack.vim'                 " Plugin for script 'ack'.
-Plug 'scrooloose/nerdtree'            " A tree explorer plugin for Vim.
-Plug 'tpope/vim-commentary'           " Comment stuff out.
-Plug 'tpope/vim-sensible'             " Defaults everyone can agree on.
-Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple.
-Plug 'vim-airline/vim-airline'         " Status/tabline for Vim.
-Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-Plug 'w0rp/ale'                       " ALE: Asynchronous Lint Engine.
+Plug 'kien/ctrlp.vim'                    " Fuzzy file, buffer, mru, etc finder.
+Plug 'mileszs/ack.vim'                   " Plugin for script 'ack'.
+Plug 'scrooloose/nerdtree'               " A tree explorer plugin for Vim.
+Plug 'tpope/vim-commentary'              " Comment stuff out.
+Plug 'tpope/vim-fugitive'                " Git wrapper.
+Plug 'tpope/vim-sensible'                " Defaults everyone can agree on.
+Plug 'tpope/vim-surround'                " Quoting/parenthesizing made simple.
+Plug 'vim-airline/vim-airline'           " Status/tabline for Vim.
+Plug 'vim-airline/vim-airline-themes'    " Themes for vim-airline
+Plug 'w0rp/ale'                          " ALE: Asynchronous Lint Engine.
 call plug#end()
 
 
@@ -63,7 +64,7 @@ set background=light              " For solarized-light background
 " General: Tab/Space war settings
 " =============================================================================
 set tabstop=2    " show existing tab with 2 spaces identation
-set shiftwidth=1 " when indenting with '>', use 2 spaces width
+set shiftwidth=2 " when indenting with '>', use 2 spaces width
 set expandtab    " on pressing tab, insert
 
 " =============================================================================
